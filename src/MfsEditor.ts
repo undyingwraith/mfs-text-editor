@@ -12,6 +12,7 @@ export class MfsEditor {
 		return this.node.files.write(path, new TextEncoder().encode(text), {
 			create: true, //TODO: make configurable
 			parents: true,
+			truncate: true,
 		});
 	}
 
@@ -23,6 +24,7 @@ export class MfsEditor {
 
 		return new TextDecoder().decode(uint8ArrayConcat(chunks));
 	}
+
 	//
 	// readFile(path: string): Promise<string> {
 	// 	return new Promise<string>((resolve, reject) => {
